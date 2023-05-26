@@ -1,0 +1,268 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap");
+header {
+  background-color: black;
+  height: 80px;
+}
+header .nav__container {
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1200px;
+}
+header .nav__container nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .nav__container nav .nav__toggle-checkbox {
+  display: none;
+}
+header .nav__container nav .nav__toggle-label {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 2rem;
+  z-index: 999;
+}
+header .nav__container nav .nav__toggle-label .nav__toggle-icon {
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+  display: block;
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+header .nav__container nav .nav__toggle-label .nav__toggle-icon::before, header .nav__container nav .nav__toggle-label .nav__toggle-icon::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  transition: transform 0.3s ease-in-out;
+}
+header .nav__container nav .nav__toggle-label .nav__toggle-icon::before {
+  transform: translateY(-8px);
+}
+header .nav__container nav .nav__toggle-label .nav__toggle-icon::after {
+  transform: translateY(8px);
+}
+header .nav__container nav .nav__logo {
+  padding: 0 16px;
+}
+header .nav__container nav .nav__logo img {
+  width: 100px;
+  max-width: 100%;
+}
+header .nav__container nav .nav__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+header .nav__container nav .nav__list .nav__item {
+  position: relative;
+  padding: 1rem;
+  padding-left: 1.5rem;
+}
+header .nav__container nav .nav__list .nav__item::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  opacity: 0.5;
+  height: 60%;
+  background-color: #fff;
+}
+header .nav__container nav .nav__list .nav__item:first-child::before {
+  display: none;
+}
+header .nav__container nav .nav__list .nav__item .nav__link {
+  text-decoration: none;
+  color: white;
+  font-size: 1.25rem;
+  position: relative;
+}
+header .nav__container nav .nav__list .nav__item .nav__link::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: white;
+  transition: width 0.2s ease-in-out;
+}
+@media (max-width: 991px) {
+  header .nav__container nav .nav__list .nav__item .nav__link::after {
+    left: 50px;
+    bottom: -5px;
+    width: 100px;
+    height: 4px;
+  }
+}
+header .nav__container nav .nav__list .nav__item .nav__link:hover::after {
+  width: 100%;
+}
+header .nav__container nav .nav__list .nav__item.red-after .nav__link::after {
+  background-color: firebrick;
+}
+header .nav__container nav .nav__list .nav__item.yellow-after .nav__link::after {
+  background-color: yellow;
+}
+header .nav__container nav .nav__list .nav__item.blue-after .nav__link::after {
+  background-color: rgb(90, 90, 255);
+}
+@media (max-width: 991px) {
+  header .nav__container .nav__toggle-checkbox:not(:checked) ~ .nav__list {
+    display: none;
+  }
+  header .nav__container .nav__toggle-checkbox:checked ~ .nav__list {
+    display: flex;
+    background-color: black;
+    position: fixed;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    margin-top: 300px;
+    padding: 4rem 0 4rem;
+    width: 100%;
+    height: 140px;
+    transition: display 0.3s;
+  }
+  header .nav__container .nav__toggle-checkbox:checked + .nav__toggle-label .nav__toggle-icon::before {
+    transform: translateY(0) rotate(90deg);
+  }
+  header .nav__container .nav__toggle-checkbox:checked + .nav__toggle-label .nav__toggle-icon::after {
+    display: none;
+  }
+  header .nav__container .nav__toggle-checkbox:checked + .nav__toggle-label .nav__toggle-icon {
+    transform: translateY(0) rotate(-45deg);
+  }
+  header .nav__container .nav__toggle-checkbox {
+    display: none;
+  }
+  header .nav__container .nav__toggle-label {
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 2rem;
+    z-index: 999;
+    order: 2;
+  }
+  header .nav__container .nav__item::before {
+    display: none;
+  }
+}
+@media (min-width: 992px) {
+  header .nav__container .nav__toggle-label {
+    display: none;
+  }
+  header .nav__container .nav__list {
+    display: flex;
+    align-items: center;
+    margin-left: 25px;
+  }
+}
+
+.container {
+  max-width: 1140px;
+  margin-inline: auto;
+  padding: 0 16px;
+}
+
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.form-container .form-item {
+  margin-bottom: 20px;
+}
+.form-container .form-item label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+.form-container .form-item .form-field {
+  display: flex;
+  align-items: center;
+}
+.form-container .form-item .form-field .form-field-textual {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+}
+.form-container .form-item.checkbox-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.form-container .form-item.checkbox-item label {
+  margin-left: 5px;
+  color: #333;
+}
+.form-container .form-item.checkbox-item input[type=checkbox] {
+  margin-right: 5px;
+}
+.form-container .buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+.form-container .buttons button {
+  padding: 10px 20px;
+  background-color: #3b98ee;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.form-container .buttons button[type=reset] {
+  background-color: firebrick;
+}
+.form-container .buttons button[type=reset]:hover {
+  background-color: darkred;
+}
+.form-container .buttons button:hover {
+  background-color: #063b69;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+.welcome {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 0;
+}
+.welcome h1 {
+  font-size: 1.75rem;
+  color: darkslategray;
+}
+.welcome .todays-date {
+  font-size: 1.25rem;
+  color: darkslategray;
+}/*# sourceMappingURL=main.css.map */
