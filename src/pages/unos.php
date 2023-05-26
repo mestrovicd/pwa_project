@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unos</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
     <?php
-    @include("header.php");
-    @include("connect.php");
+    @include("../components/header.php");
+    @include("../components/connect.php");
     ?>
     <div class="form-container">
 
-        <form action="skripta.php" method="POST">
+        <form action="../components/skripta.php" method="POST">
             <div class="form-item">
                 <label for="title">Naslov vijesti</label>
                 <div class="form-field">
@@ -66,7 +66,7 @@
     </div>
 
     <?php
-    @include("footer.php");
+    @include("../components/footer.php");
     ?>
 </body>
 

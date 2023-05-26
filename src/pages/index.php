@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to BBC.com</title>
     <meta name="description" content="Read about world news">
-    <link rel="stylesheet" href="styles/main.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <link rel="stylesheet" href="../../styles/main.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
     <?php
-    @include("header.php");
-    #@include("connect.php");
+    @include("../components/header.php");
+    @include("../components/connect.php");
     ?>
     <main id="content">
         <div class="container">
@@ -24,11 +24,11 @@
                 <?php echo '<p class="todays-date">' . date("l") . ". " . date("d M") . "</p>"; ?>
             </section>
             <section class="news">
-                <?php #@include("category_landing.php?id=news") 
+                <?php #@include("../components/category_landing.php?id=news") 
                 ?>
             </section>
             <section class="news">
-                <?php #@include("category_landing.php?id=sport") 
+                <?php #@include("../components/category_landing.php?id=sport") 
                 ?>
             </section>
         </div>
@@ -37,7 +37,7 @@
 
 
     <?php
-    @include("footer.php");
+    @include("../components/footer.php");
     ?>
 </body>
 

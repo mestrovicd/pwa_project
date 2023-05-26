@@ -6,7 +6,7 @@
                 <span class="nav__toggle-icon"></span>
             </label>
             <a href="index.php" class="nav__logo">
-                <img src="imgs/logo.png" alt="click here to go to BBC homepage">
+                <img src="../../imgs/logo.png" alt="click here to go to BBC homepage">
             </a>
             <ul class="nav__list">
                 <li class="nav__item">
