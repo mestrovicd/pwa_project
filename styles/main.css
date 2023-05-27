@@ -393,6 +393,12 @@ section .section__title::before {
   }
 }
 
+.admin .category-dropdown {
+  padding: 15px 0;
+}
+.admin .category-dropdown select {
+  padding: 5px;
+}
 .admin form {
   padding: 20px;
   position: relative;

@@ -17,33 +17,24 @@
 
     define('UPLPATH', '../../imgs/');
 
-    if (isset($_POST['delete'])) {
-        $id = $_POST['id'];
-        $query = "DELETE FROM articles WHERE id=$id";
-        $result = mysqli_query($dbc, $query);
-    }
+    $selectedCategory = $_GET['category'] ?? '';
 
-    if (isset($_POST['update'])) {
-        $picture = $_FILES['pphoto']['name'];
-        $title = mysqli_real_escape_string($dbc, $_POST['title']);
-        $about = mysqli_real_escape_string($dbc, $_POST['about']);
-        $content = mysqli_real_escape_string($dbc, $_POST['content']);
-        $category = $_POST['category'];
-        $archive = isset($_POST['archive']) ? 1 : 0;
-
-        if (!empty($picture)) {
-            $target_dir = '../../imgs/' . $picture;
-            move_uploaded_file($_FILES["pphoto"]["tmp_name"], $target_dir);
-        } else {
-            $picture = $_POST['old_picture'];
-        }
-
-        $id = $_POST['id'];
-        $query = "UPDATE articles SET naslov='$title', sazetak='$about', tekst='$content', slika='$picture', kategorija='$category', arhiva='$archive' WHERE id=$id";
-        $result = mysqli_query($dbc, $query);
-    }
+    echo '<div class="category-dropdown">';
+    echo '<label for="category">Category: </label>';
+    echo '<select name="category" id="category" onchange="location = this.value;">';
+    echo '<option value="admin.php">All</option>';
+    echo '<option value="admin.php?category=news"' . ($selectedCategory === 'news' ? ' selected' : '') . '>News</option>';
+    echo '<option value="admin.php?category=sport"' . ($selectedCategory === 'sport' ? ' selected' : '') . '>Sport</option>';
+    echo '<option value="admin.php?category=culture"' . ($selectedCategory === 'culture' ? ' selected' : '') . '>Culture</option>';
+    echo '</select>';
+    echo '</div>';
 
     $query = "SELECT * FROM articles";
+
+    if ($selectedCategory) {
+        $query .= " WHERE kategorija = '$selectedCategory'";
+    }
+
     $result = mysqli_query($dbc, $query);
 
     while ($row = mysqli_fetch_array($result)) {
@@ -59,6 +50,7 @@
         }
         echo '<form class="' . $before_color . '" enctype="multipart/form-data" action="" method="POST">';
         echo '<h3>Članak: ' . $row['naslov'] . '</h3>';
+
         echo '<div class="admin-form-content">';
         echo '<div class="form-item">';
         echo '<label for="title">Naslov vjesti:</label>';

@@ -113,6 +113,14 @@ section {
 }
 
 .admin {
+    .category-dropdown {
+        padding: 15px 0;
+
+        select {
+            padding: 5px;
+        }
+    }
+
     form {
         padding: 20px;
         position: relative;
