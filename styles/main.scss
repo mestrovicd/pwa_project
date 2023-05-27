@@ -28,22 +28,87 @@ img {
     padding: 25px 0;
 
     h1 {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
         color: darkslategray;
+
+        @media (min-width: 991px) {
+            font-size: 1.75rem;
+        }
     }
 
     .todays-date {
-        font-size: 1.25rem;
+        font-size: 1rem;
         color: darkslategray;
+
+        @media (min-width: 991px) {
+            font-size: 1.25rem;
+        }
     }
+}
+
+main {
+    padding-top: 80px;
 }
 
 section {
     &.news,
     &.sport,
     &.culture {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 20px;
+        margin-bottom: 60px;
+
+        .articles__container {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 20px;
+
+            @media (min-width: 991px) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .media_body {
+                a {
+                    text-decoration: none;
+                    color: darkslategray;
+                    font-size: 1.5rem;
+                }
+            }
+
+            .summary {
+                font-size: 1.125rem;
+            }
+        }
+
+        &.red-before .section__title::before {
+            background-color: firebrick;
+        }
+
+        &.yellow-before .section__title::before {
+            background-color: rgb(131, 131, 12);
+        }
+
+        &.green-before .section__title::before {
+            background-color: green;
+        }
+    }
+
+    .section__title {
+        margin-bottom: 15px;
+        position: relative;
+        padding-left: 10px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0px;
+            width: 5px;
+            height: 100%;
+
+            @media (max-width: 991px) {
+                left: 50px;
+                bottom: -5px;
+                width: 100px;
+                height: 4px;
+            }
+        }
     }
 }

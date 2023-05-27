@@ -2,6 +2,10 @@
 header {
   background-color: black;
   height: 80px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 999;
 }
 header .nav__container {
   margin: 0 auto;
@@ -113,7 +117,7 @@ header .nav__container nav .nav__list .nav__item.red-after .nav__link::after {
   background-color: firebrick;
 }
 header .nav__container nav .nav__list .nav__item.yellow-after .nav__link::after {
-  background-color: yellow;
+  background-color: rgb(131, 131, 12);
 }
 header .nav__container nav .nav__list .nav__item.blue-after .nav__link::after {
   background-color: rgb(90, 90, 255);
@@ -126,6 +130,7 @@ header .nav__container nav .nav__list .nav__item.blue-after .nav__link::after {
     display: flex;
     background-color: black;
     position: fixed;
+    z-index: 999;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: start;
@@ -170,6 +175,29 @@ header .nav__container nav .nav__list .nav__item.blue-after .nav__link::after {
     align-items: center;
     margin-left: 25px;
   }
+}
+
+footer {
+  background-color: darkslategray;
+  padding: 25px 10px;
+}
+footer .container {
+  display: flex;
+}
+footer .container .footer__content {
+  position: relative;
+  width: 100%;
+  color: white;
+  font-weight: 300;
+  font-size: 0.875rem;
+}
+footer .container .footer__content::before {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  background-color: white;
+  top: -10px;
 }
 
 .form-container {
@@ -259,16 +287,75 @@ img {
   padding: 25px 0;
 }
 .welcome h1 {
-  font-size: 1.75rem;
-  color: darkslategray;
-}
-.welcome .todays-date {
   font-size: 1.25rem;
   color: darkslategray;
 }
+@media (min-width: 991px) {
+  .welcome h1 {
+    font-size: 1.75rem;
+  }
+}
+.welcome .todays-date {
+  font-size: 1rem;
+  color: darkslategray;
+}
+@media (min-width: 991px) {
+  .welcome .todays-date {
+    font-size: 1.25rem;
+  }
+}
+
+main {
+  padding-top: 80px;
+}
 
 section.news, section.sport, section.culture {
+  margin-bottom: 60px;
+}
+section.news .articles__container, section.sport .articles__container, section.culture .articles__container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: 20px;
+}
+@media (min-width: 991px) {
+  section.news .articles__container, section.sport .articles__container, section.culture .articles__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+section.news .articles__container .media_body a, section.sport .articles__container .media_body a, section.culture .articles__container .media_body a {
+  text-decoration: none;
+  color: darkslategray;
+  font-size: 1.5rem;
+}
+section.news .articles__container .summary, section.sport .articles__container .summary, section.culture .articles__container .summary {
+  font-size: 1.125rem;
+}
+section.news.red-before .section__title::before, section.sport.red-before .section__title::before, section.culture.red-before .section__title::before {
+  background-color: firebrick;
+}
+section.news.yellow-before .section__title::before, section.sport.yellow-before .section__title::before, section.culture.yellow-before .section__title::before {
+  background-color: rgb(131, 131, 12);
+}
+section.news.green-before .section__title::before, section.sport.green-before .section__title::before, section.culture.green-before .section__title::before {
+  background-color: green;
+}
+section .section__title {
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 10px;
+}
+section .section__title::before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  width: 5px;
+  height: 100%;
+}
+@media (max-width: 991px) {
+  section .section__title::before {
+    left: 50px;
+    bottom: -5px;
+    width: 100px;
+    height: 4px;
+  }
 }/*# sourceMappingURL=main.css.map */

@@ -22,54 +22,62 @@
 
             <section class="welcome">
                 <h1>Welcome to BBC.com</h1>
-                <?php echo '<p class="todays-date">' . date("l") . ". " . date("d M") . "</p>"; ?>
+                <?php echo '<p class="todays-date">' . date("l") . ", " . date("d M") . "</p>"; ?>
             </section>
 
-            <section class="news">
-                <?php
-                define('UPLPATH', '../../imgs/');
-                $query = "SELECT * FROM articles WHERE arhiva = 0 AND kategorija = 'news' LIMIT 3";
-                $result = mysqli_query($dbc, $query);
+            <section class="news red-before">
+                <h2 class="section__title">News</h2>
+                <div class="articles__container">
 
-                while ($row = mysqli_fetch_array($result)) {
-                    echo '<article>';
-                    echo '<div class="article">';
-                    echo '<div class="sport_img">';
-                    echo '<img src="' . UPLPATH . $row['slika'] . '">';
-                    echo '</div>';
-                    echo '<div class="media_body">';
-                    echo '<h4 class="title">';
-                    echo '<a href="clanak.php?id=' . $row['id'] . '">';
-                    echo $row['naslov'];
-                    echo '</a></h4>';
-                    echo '<p class="summary">' . $row['sazetak'] . '</p>';
-                    echo '</div></div>';
-                    echo '</article>';
-                }
-                ?>
+                    <?php
+                    define('UPLPATH', '../../imgs/');
+                    $query = "SELECT * FROM articles WHERE arhiva = 0 AND kategorija = 'news' LIMIT 3";
+                    $result = mysqli_query($dbc, $query);
+
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<article>';
+                        echo '<div class="article">';
+                        echo '<div class="article_img">';
+                        echo '<img src="' . UPLPATH . $row['slika'] . '">';
+                        echo '</div>';
+                        echo '<div class="media_body">';
+                        echo '<h4 class="title">';
+                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
+                        echo $row['naslov'];
+                        echo '</a></h4>';
+                        echo '<p class="summary">' . $row['sazetak'] . '</p>';
+                        echo '</div></div>';
+                        echo '</article>';
+                    }
+                    ?>
+                </div>
             </section>
 
-            <section class="sport">
-                <?php
-                $query = "SELECT * FROM articles WHERE arhiva = 0 AND kategorija = 'sport' LIMIT 3";
-                $result = mysqli_query($dbc, $query);
+            <section class="sport yellow-before">
+                <h2 class="section__title">Sport</h2>
+                <div class="articles__container">
 
-                while ($row = mysqli_fetch_array($result)) {
-                    echo '<article>';
-                    echo '<div class="article">';
-                    echo '<div class="sport_img">';
-                    echo '<img src="' . UPLPATH . $row['slika'] . '">';
-                    echo '</div>';
-                    echo '<div class="media_body">';
-                    echo '<h4 class="title">';
-                    echo '<a href="clanak.php?id=' . $row['id'] . '">';
-                    echo $row['naslov'];
-                    echo '</a></h4>';
-                    echo '<p class="summary">' . $row['sazetak'] . '</p>';
-                    echo '</div></div>';
-                    echo '</article>';
-                }
-                ?>
+                    <?php
+                    $query = "SELECT * FROM articles WHERE arhiva = 0 AND kategorija = 'sport' LIMIT 3";
+                    $result = mysqli_query($dbc, $query);
+
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<article>';
+                        echo '<div class="article">';
+                        echo '<div class="article_img">';
+                        echo '<img src="' . UPLPATH . $row['slika'] . '">';
+                        echo '</div>';
+                        echo '<div class="media_body">';
+                        echo '<h4 class="title">';
+                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
+                        echo $row['naslov'];
+                        echo '</a></h4>';
+                        echo '<p class="summary">' . $row['sazetak'] . '</p>';
+                        echo '</div></div>';
+                        echo '</article>';
+                    }
+                    ?>
+                </div>
             </section>
 
         </div>

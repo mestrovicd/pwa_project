@@ -1,0 +1,25 @@
+footer {
+    background-color: darkslategray;
+    padding: 25px 10px;
+
+    .container {
+        display: flex;
+
+        .footer__content {
+            position: relative;
+            width: 100%;
+            color: white;
+            font-weight: 300;
+            font-size: 0.875rem;
+
+            &::before {
+                content: "";
+                position: absolute;
+                height: 1px;
+                width: 100%;
+                background-color: white;
+                top: -10px;
+            }
+        }
+    }
+}
