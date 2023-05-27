@@ -8,6 +8,60 @@
     <title>Unos</title>
     <link rel="stylesheet" href="../../styles/main.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $("form").validate({
+                errorPlacement: function(error, element) {
+                    error.insertBefore(element);
+                },
+                rules: {
+                    title: {
+                        required: true,
+                        minlength: 5,
+                        maxlength: 30
+                    },
+                    about: {
+                        required: true,
+                        minlength: 10,
+                        maxlength: 100
+                    },
+                    content: {
+                        required: true
+                    },
+                    pphoto: {
+                        required: true,
+                    },
+                    category: {
+                        required: true
+                    }
+                },
+                messages: {
+                    title: {
+                        required: "Naslov mora biti unesen",
+                        minlength: "Naslov mora imati između 5 i 30 znakova",
+                        maxlength: "Naslov mora imati između 5 i 30 znakova"
+                    },
+                    about: {
+                        required: "Kratki sadržaj mora biti unesen",
+                        minlength: "Kratki sadržaj mora imati između 10 i 100 znakova",
+                        maxlength: "Kratki sadržaj mora imati između 10 i 100 znakova"
+                    },
+                    content: {
+                        required: "Sadržaj mora biti unesen"
+                    },
+                    pphoto: {
+                        required: "Slika mora biti upload-ana",
+                    },
+                    category: {
+                        required: "Kategorija mora biti odabrana"
+                    }
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -39,7 +93,7 @@
             <div class="form-item">
                 <label for="pphoto">Slika:</label>
                 <div class="form-field">
-                    <input type="file" accept="image/jpg,image/gif" class="input-text" name="pphoto" />
+                    <input type="file" accept="image/jpg,image/jpeg,image/gif" class="input-text" name="pphoto" />
                 </div>
             </div>
             <div class="form-item">

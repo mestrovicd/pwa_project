@@ -240,7 +240,7 @@ footer .container .footer__content::before {
   padding-top: 100px;
 }
 .form-container .form-item {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .form-container .form-item label {
   display: block;
@@ -248,9 +248,13 @@ footer .container .footer__content::before {
   margin-bottom: 5px;
   color: #333;
 }
+.form-container .form-item label.error {
+  color: red;
+}
 .form-container .form-item .form-field {
   display: flex;
   align-items: center;
+  flex-direction: column;
 }
 .form-container .form-item .form-field .form-field-textual {
   padding: 10px;
@@ -258,6 +262,11 @@ footer .container .footer__content::before {
   border-radius: 4px;
   font-size: 14px;
   width: 100%;
+}
+.form-container .form-item .form-field input[type=checkbox] {
+  height: 20px;
+  width: 20px;
+  align-self: start;
 }
 .form-container .form-item.checkbox-item {
   display: flex;
@@ -345,6 +354,7 @@ main {
 
 section.news, section.sport, section.culture {
   margin-bottom: 60px;
+  margin-top: 15px;
 }
 section.news .articles__container, section.sport .articles__container, section.culture .articles__container {
   display: grid;
@@ -356,9 +366,11 @@ section.news .articles__container, section.sport .articles__container, section.c
     grid-template-columns: repeat(3, 1fr);
   }
 }
-section.news .articles__container .media_body a, section.sport .articles__container .media_body a, section.culture .articles__container .media_body a {
+section.news .articles__container a, section.sport .articles__container a, section.culture .articles__container a {
   text-decoration: none;
   color: darkslategray;
+}
+section.news .articles__container .media_body h4, section.sport .articles__container .media_body h4, section.culture .articles__container .media_body h4 {
   font-size: 1.5rem;
 }
 section.news .articles__container .summary, section.sport .articles__container .summary, section.culture .articles__container .summary {
@@ -483,5 +495,27 @@ section .section__title::before {
   background-color: rgb(131, 131, 12);
 }
 .admin form.green-before::before {
+  background-color: green;
+}
+
+.article__detail .media_body {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.category__bg {
+  padding: 7px;
+  margin-bottom: 15px;
+}
+.category__bg h2 {
+  text-transform: capitalize;
+}
+.category__bg.news {
+  background-color: firebrick;
+}
+.category__bg.sport {
+  background-color: rgb(131, 131, 12);
+}
+.category__bg.culture {
   background-color: green;
 }/*# sourceMappingURL=main.css.map */

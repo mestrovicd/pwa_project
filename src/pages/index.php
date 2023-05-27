@@ -36,17 +36,19 @@
 
                     while ($row = mysqli_fetch_array($result)) {
                         echo '<article>';
+                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
                         echo '<div class="article">';
                         echo '<div class="article_img">';
                         echo '<img src="' . UPLPATH . $row['slika'] . '">';
                         echo '</div>';
                         echo '<div class="media_body">';
                         echo '<h4 class="title">';
-                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
                         echo $row['naslov'];
-                        echo '</a></h4>';
+                        echo '</h4>';
                         echo '<p class="summary">' . $row['sazetak'] . '</p>';
-                        echo '</div></div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</a>';
                         echo '</article>';
                     }
                     ?>
@@ -63,17 +65,19 @@
 
                     while ($row = mysqli_fetch_array($result)) {
                         echo '<article>';
+                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
                         echo '<div class="article">';
                         echo '<div class="article_img">';
                         echo '<img src="' . UPLPATH . $row['slika'] . '">';
                         echo '</div>';
                         echo '<div class="media_body">';
                         echo '<h4 class="title">';
-                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
                         echo $row['naslov'];
-                        echo '</a></h4>';
+                        echo '</h4>';
                         echo '<p class="summary">' . $row['sazetak'] . '</p>';
-                        echo '</div></div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</a>';
                         echo '</article>';
                     }
                     ?>
@@ -90,17 +94,19 @@
 
                     while ($row = mysqli_fetch_array($result)) {
                         echo '<article>';
+                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
                         echo '<div class="article">';
                         echo '<div class="article_img">';
                         echo '<img src="' . UPLPATH . $row['slika'] . '">';
                         echo '</div>';
                         echo '<div class="media_body">';
                         echo '<h4 class="title">';
-                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
                         echo $row['naslov'];
-                        echo '</a></h4>';
+                        echo '</h4>';
                         echo '<p class="summary">' . $row['sazetak'] . '</p>';
-                        echo '</div></div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</a>';
                         echo '</article>';
                     }
                     ?>
