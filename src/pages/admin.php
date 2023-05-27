@@ -32,7 +32,7 @@
         $archive = isset($_POST['archive']) ? 1 : 0;
 
         if (!empty($picture)) {
-            $target_dir = 'img/' . $picture;
+            $target_dir = '../../imgs/' . $picture;
             move_uploaded_file($_FILES["pphoto"]["tmp_name"], $target_dir);
         } else {
             $picture = $_POST['old_picture'];

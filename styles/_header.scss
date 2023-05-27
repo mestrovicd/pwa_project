@@ -214,3 +214,35 @@ header {
         }
     }
 }
+
+.search {
+    width: 30px;
+    margin-right: 15px;
+    padding: 5px;
+    cursor: pointer;
+
+    @media (max-width: 991px) {
+        display: none;
+    }
+}
+
+.searchContent {
+    position: absolute;
+    background-color: black;
+    width: 360px;
+    top: 80px;
+    right: 0;
+    height: 40px;
+    color: white;
+    padding: 10px;
+    display: none;
+    border-radius: 0px 0px 10px 10px;
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    &.open {
+        display: block;
+    }
+}

@@ -26,5 +26,17 @@
                 </li>
             </ul>
         </nav>
+        <div class="search" id="search" onclick="toggleSearch()">
+            <img src="../../imgs/search.png">
+        </div>
+        <div class="searchContent">
+            <p>Šalim se, ne postoji search :)</p>
+        </div>
     </div>
+    <script>
+        function toggleSearch() {
+            const searchContent = document.querySelector('.searchContent');
+            searchContent.classList.toggle('open');
+        }
+    </script>
 </header>
