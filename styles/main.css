@@ -172,12 +172,6 @@ header .nav__container nav .nav__list .nav__item.blue-after .nav__link::after {
   }
 }
 
-.container {
-  max-width: 1140px;
-  margin-inline: auto;
-  padding: 0 16px;
-}
-
 .form-container {
   max-width: 600px;
   margin: 0 auto;
@@ -253,6 +247,12 @@ img {
   width: 100%;
 }
 
+.container {
+  max-width: 1140px;
+  margin-inline: auto;
+  padding: 0 16px;
+}
+
 .welcome {
   display: flex;
   justify-content: space-between;
@@ -265,4 +265,10 @@ img {
 .welcome .todays-date {
   font-size: 1.25rem;
   color: darkslategray;
+}
+
+section.news, section.sport, section.culture {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
 }/*# sourceMappingURL=main.css.map */

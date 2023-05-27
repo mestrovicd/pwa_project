@@ -17,7 +17,7 @@
     ?>
     <div class="form-container">
 
-        <form action="../components/skripta.php" method="POST">
+        <form action="unos.php" method="POST" enctype="multipart/form-data">
             <div class="form-item">
                 <label for="title">Naslov vijesti</label>
                 <div class="form-field">
@@ -67,6 +67,35 @@
 
     <?php
     @include("../components/footer.php");
+
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (!empty($_FILES['pphoto']) && $_FILES['pphoto']['error'] == 0) {
+            $picture = $_FILES['pphoto']['name'];
+            $tempFile = $_FILES['pphoto']['tmp_name'];
+            $targetDir = 'img/';
+            $targetFile = $targetDir . $picture;
+        } else {
+            $picture = '';
+        }
+
+        $title = mysqli_real_escape_string($dbc, $_POST['title']);
+        $about = mysqli_real_escape_string($dbc, $_POST['about']);
+        $content = mysqli_real_escape_string($dbc, $_POST['content']);
+        $category = $_POST['category'];
+        $date = date('d.m.Y.');
+
+        $archive = isset($_POST['archive']) ? 1 : 0;
+
+        $query = "INSERT INTO articles (datum, naslov, sazetak, tekst, slika, kategorija, arhiva ) VALUES ('$date', '$title', '$about', '$content', '$picture', '$category', '$archive')";
+
+        $result = mysqli_query($dbc, $query) or die('Error querying database.');
+
+        mysqli_close($dbc);
+
+        header("Location: unos.php");
+    }
+    mysqli_close($dbc);
     ?>
 </body>
 

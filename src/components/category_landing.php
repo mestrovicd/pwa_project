@@ -1,23 +1,27 @@
 <?php
+@include("./connect.php");
 define('UPLPATH', 'img/');
 
 $id = $_GET['id'];
 
-$query = "SELECT * FROM sport WHERE archive=0 AND category='$id' LIMIT 3";
+$query = "SELECT * FROM articles WHERE arhiva = 0 AND kategorija = '$id' LIMIT 3";
 $result = mysqli_query($dbc, $query);
 
-$i = 0;
+$content = '';
+
 while ($row = mysqli_fetch_array($result)) {
-    echo '<article>';
-    echo '<div class="article">';
-    echo '<div class="sport_img">';
-    echo '<img src="' . UPLPATH . $row['slika'] . '"';
-    echo '</div>';
-    echo '<div class="media_body">';
-    echo '<h4 class="title">';
-    echo '<a href="clanak.php?id=' . $row['id'] . '">';
-    echo $row['naslov'];
-    echo '</a></h4>';
-    echo '</div></div>';
-    echo '</article>';
+    $content .= '<article>';
+    $content .= '<div class="article">';
+    $content .= '<div class="sport_img">';
+    $content .= '<img src="' . UPLPATH . $row['slika'] . '">';
+    $content .= '</div>';
+    $content .= '<div class="media_body">';
+    $content .= '<h4 class="title">';
+    $content .= '<a href="clanak.php?id=' . $row['id'] . '">';
+    $content .= $row['naslov'];
+    $content .= '</a></h4>';
+    $content .= '</div></div>';
+    $content .= '</article>';
 }
+
+echo $content;
