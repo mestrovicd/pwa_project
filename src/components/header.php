@@ -13,10 +13,13 @@
                     <a href="index.php" class="nav__link">Home</a>
                 </li>
                 <li class="nav__item red-after">
-                    <a href="category.php?id=news" class="nav__link">News</a>
+                    <a href="kategorija.php?id=news" class="nav__link">News</a>
                 </li>
                 <li class="nav__item yellow-after">
-                    <a href="category.php?id=sport" class="nav__link">Sport</a>
+                    <a href="kategorija.php?id=sport" class="nav__link">Sport</a>
+                </li>
+                <li class="nav__item green-after">
+                    <a href="kategorija.php?id=culture" class="nav__link">Culture</a>
                 </li>
                 <li class="nav__item blue-after">
                     <a href="admin.php" class="nav__link">Admin</a>

@@ -59,7 +59,7 @@ section {
         .articles__container {
             display: grid;
             grid-template-columns: 1fr;
-            grid-gap: 20px;
+            gap: 20px;
 
             @media (min-width: 991px) {
                 grid-template-columns: repeat(3, 1fr);
@@ -104,11 +104,111 @@ section {
             height: 100%;
 
             @media (max-width: 991px) {
-                left: 50px;
                 bottom: -5px;
                 width: 100px;
-                height: 4px;
+                height: 5px;
             }
+        }
+    }
+}
+
+.admin {
+    form {
+        padding: 20px;
+        position: relative;
+        margin-bottom: 40px;
+
+        .admin-form-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding: 5px;
+
+            @media (min-width: 991px) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .form-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                background-color: #e0e0e0;
+                border-radius: 5px;
+                gap: 5px;
+
+                @media (min-width: 991px) {
+                    gap: 10px;
+                }
+
+                .form-field {
+                    input,
+                    select {
+                        padding: 5px;
+                        border-radius: 10px;
+                    }
+
+                    #archive {
+                        width: 20px;
+                        height: 20px;
+
+                        &:checked {
+                            background-color: green;
+                        }
+                    }
+                }
+            }
+        }
+
+        .form-item {
+            button {
+                padding: 10px 10px;
+                margin: 5px 10px 0px;
+                border: none;
+                border-radius: 3px;
+                color: white;
+                font-size: 1rem;
+                cursor: pointer;
+
+                @media (min-width: 991px) {
+                    padding: 10px 20px;
+                    font-size: 1.25rem;
+                    margin: 10px 15px 0;
+                }
+
+                &[type="reset"] {
+                    background-color: orange;
+                    border: none;
+                    border-radius: 3px;
+                    color: white;
+                }
+
+                &[name="update"] {
+                    background-color: darkslateblue;
+                }
+
+                &[name="delete"] {
+                    background-color: crimson;
+                }
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            width: 3px;
+            height: 97%;
+        }
+
+        &.red-before::before {
+            background-color: firebrick;
+        }
+        &.yellow-before::before {
+            background-color: rgb(131, 131, 12);
+        }
+        &.green-before::before {
+            background-color: green;
         }
     }
 }

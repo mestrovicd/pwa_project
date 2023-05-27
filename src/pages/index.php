@@ -80,6 +80,33 @@
                 </div>
             </section>
 
+            <section class="culture green-before">
+                <h2 class="section__title">Culture</h2>
+                <div class="articles__container">
+
+                    <?php
+                    $query = "SELECT * FROM articles WHERE arhiva = 0 AND kategorija = 'culture' LIMIT 3";
+                    $result = mysqli_query($dbc, $query);
+
+                    while ($row = mysqli_fetch_array($result)) {
+                        echo '<article>';
+                        echo '<div class="article">';
+                        echo '<div class="article_img">';
+                        echo '<img src="' . UPLPATH . $row['slika'] . '">';
+                        echo '</div>';
+                        echo '<div class="media_body">';
+                        echo '<h4 class="title">';
+                        echo '<a href="clanak.php?id=' . $row['id'] . '">';
+                        echo $row['naslov'];
+                        echo '</a></h4>';
+                        echo '<p class="summary">' . $row['sazetak'] . '</p>';
+                        echo '</div></div>';
+                        echo '</article>';
+                    }
+                    ?>
+                </div>
+            </section>
+
         </div>
     </main>
 
