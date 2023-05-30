@@ -2,6 +2,34 @@
 session_start();
 include("../components/connect.php");
 include("../components/header.php");
+
+if (isset($_POST['login'])) {
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
+
+    $stmt = $dbc->prepare("SELECT username, password, level FROM users WHERE username = ?");
+    $stmt->bind_param('s', $username);
+    $stmt->execute();
+    mysqli_stmt_store_result($stmt);
+    mysqli_stmt_bind_result($stmt, $username, $pass1, $level);
+    mysqli_stmt_fetch($stmt);
+
+    if (password_verify($pass, $pass1) && mysqli_stmt_num_rows($stmt) > 0) {
+        if ($level == 1) {
+            $admin = true;
+        } else {
+            $admin = false;
+        }
+
+        $_SESSION['username'] = $username;
+        $_SESSION['level'] = $level;
+
+        header('Location: admin.php');
+        exit();
+    } else {
+        echo "<script type=\"text/javascript\">document.getElementById('passError').innerHTML = \"Netočna lozinka ili korisničko ime!\";</script>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -69,34 +97,6 @@ include("../components/header.php");
     </script>
 
     <?php
-    if (isset($_POST['login'])) {
-        $username = $_POST['username'];
-        $pass = $_POST['pass'];
-
-        $stmt = $dbc->prepare("SELECT username, password, level FROM users WHERE username = ?");
-        $stmt->bind_param('s', $username);
-        $stmt->execute();
-        mysqli_stmt_store_result($stmt);
-        mysqli_stmt_bind_result($stmt, $username, $pass1, $level);
-        mysqli_stmt_fetch($stmt);
-
-        if (password_verify($pass, $pass1) && mysqli_stmt_num_rows($stmt) > 0) {
-            if ($level == 1) {
-                $admin = true;
-            } else {
-                $admin = false;
-            }
-
-            $_SESSION['username'] = $username;
-            $_SESSION['level'] = $level;
-
-            header('Location: admin.php');
-            exit();
-        } else {
-            echo "<script type=\"text/javascript\">document.getElementById('passError').innerHTML = \"Netočna lozinka ili korisničko ime!\";</script>";
-        }
-    }
-
     include("../components/footer.php");
     ?>
 </body>
