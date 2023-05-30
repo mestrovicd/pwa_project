@@ -518,4 +518,38 @@ section .section__title::before {
 }
 .category__bg.culture {
   background-color: green;
+}
+
+.login h1,
+.registracija h1 {
+  text-align: center;
+  padding: 10px;
+}
+.login .container,
+.registracija .container {
+  display: flex;
+  justify-content: center;
+}
+.login form,
+.registracija form {
+  padding: 25px;
+  max-width: 500px;
+}
+.login form .form-item,
+.registracija form .form-item {
+  margin-bottom: 25px;
+  text-align: center;
+}
+.login form .form-item button,
+.registracija form .form-item button {
+  margin-bottom: 20px;
+}
+.login form .form-item button[type=submit],
+.registracija form .form-item button[type=submit] {
+  font-size: 1.25rem;
+  padding: 15px;
+  background-color: #006283;
+  border: none;
+  border-radius: 5px;
+  color: white;
 }/*# sourceMappingURL=main.css.map */

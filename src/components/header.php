@@ -22,7 +22,7 @@
                     <a href="kategorija.php?id=culture" class="nav__link">Culture</a>
                 </li>
                 <li class="nav__item blue-after">
-                    <a href="admin.php" class="nav__link">Admin</a>
+                    <a href="login.php" class="nav__link">Admin</a>
                 </li>
             </ul>
         </nav>
